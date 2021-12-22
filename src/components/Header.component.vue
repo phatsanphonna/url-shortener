@@ -14,6 +14,6 @@
 }
 
 .title-header h1 {
-  @apply font-bold text-2xl md:text-5xl;
+  @apply font-bold text-xl md:text-5xl;
 }
 </style>
