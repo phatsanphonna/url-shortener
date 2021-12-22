@@ -4,11 +4,11 @@
       <Header />
       <form @submit.prevent="makeShortenUrl">
         <input type="url" v-model="url" class="url" placeholder="https://youtu.be/dQw4w9WgXcQ" />
-        <button type="submit" class="btn-shorten">ย่อลิ้งค์</button>
+        <button type="submit" class="btn-shorten">ย่อลิ้งก์</button>
       </form>
 
       <div class="shorten-url" v-if="shortenUrl">
-        <h3>ลิ้งค์ถูกย่อแล้ว</h3>
+        <h3>ลิ้งก์ถูกย่อแล้ว</h3>
         <a :href='shortenUrlRedirect' target="_blank">
           <p>{{ shortenUrl }}</p>
         </a>

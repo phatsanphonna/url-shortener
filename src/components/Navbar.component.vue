@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <header class="header">
-      <p class="title">ย่อลิ้งค์แบบรวดเร็ว</p>
+      <p class="title">ย่อลิ้งก์แบบรวดเร็ว</p>
       <p class="github">
         <a href="https://github.com/ssuniie" target="_blank">GitHub</a>
       </p>
