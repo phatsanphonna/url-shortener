@@ -92,7 +92,7 @@ form > * {
   @apply text-2xl text-white underline font-bold;
 }
 
-.shorten-url a {
+.shorten-url p {
   @apply text-sm md:text-base text-white hover:underline text-center;
 }
 </style>
