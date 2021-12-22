@@ -39,7 +39,7 @@ const makeShortenUrl = async () => {
   const { error } = await insertShortenUrl({ shorten_string, url: url.value })
   if (error) console.error(error)
 
-  shortenUrl.value = `https://quick-url-shortener.vercel.app/${shorten_string}`
+  shortenUrl.value = `https://quickurlsh.vercel.app/${shorten_string}`
   shortenUrlRedirect.value = `${process.env.BASE_URL}${shorten_string}`
   url.value = ''
 }
