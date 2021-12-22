@@ -9,7 +9,7 @@
 
       <div class="shorten-url" v-if="shortenUrl">
         <h3>ลิ้งค์ถูกย่อแล้ว</h3>
-        <a :href='shortenUrl' target="_blank">
+        <a :href='shortenUrlRedirect' target="_blank">
           <p>{{ shortenUrl }}</p>
         </a>
       </div>
@@ -26,6 +26,7 @@ import Layout from '@/components/Layout.component.vue';
 import Header from '@/components/Header.component.vue';
 
 const shortenUrl = ref()
+const shortenUrlRedirect = ref()
 const url = ref()
 
 const randomString = () => (Math.random() + 1).toString(36).substring(6);
@@ -38,8 +39,8 @@ const makeShortenUrl = async () => {
   const { error } = await insertShortenUrl({ shorten_string, url: url.value })
   if (error) console.error(error)
 
-  // shortenUrl.value = `https://localhost:8082/${shorten_string}`
-  shortenUrl.value = `${process.env.BASE_URL}${shorten_string}`
+  shortenUrl.value = `https://quick-url-shortener.vercel.app/${shorten_string}`
+  shortenUrlRedirect.value = `${process.env.BASE_URL}${shorten_string}`
   url.value = ''
 }
 </script>
