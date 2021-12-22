@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
+import Blank from '@/views/Blank.vue'
+import { findShortenUrl } from '@/backend/database'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,12 +10,18 @@ const routes: Array<RouteRecordRaw> = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/:routeId',
+    component: Blank,
+    beforeEnter: async (to, _from, next) => {
+      const { data, error } = await findShortenUrl(to.params.routeId)
+      if (error) return console.error(error)
+      
+      if (data.shorten_string) {
+        location.href = data.url
+      } else {
+        next()
+      }
+    }
   }
 ]
 
