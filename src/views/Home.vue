@@ -9,9 +9,7 @@
 
       <div class="shorten-url" v-if="shortenUrl">
         <h3>ลิ้งก์ถูกย่อแล้ว</h3>
-        <a :href='shortenUrlRedirect' target="_blank">
-          <p>{{ shortenUrl }}</p>
-        </a>
+          <p @click="copyUrl">{{ shortenUrl }}</p>
       </div>
     </Layout>
   </div>
@@ -42,6 +40,11 @@ const makeShortenUrl = async () => {
   shortenUrl.value = `https://quickurlsh.vercel.app/${shorten_string}`
   shortenUrlRedirect.value = `${process.env.BASE_URL}${shorten_string}`
   url.value = ''
+}
+
+const copyUrl = async () => {
+  await navigator.clipboard.writeText(shortenUrl.value);
+  alert('คัดลอกลิ้งก์เรียบร้อย!')
 }
 </script>
 
