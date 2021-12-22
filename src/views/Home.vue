@@ -90,6 +90,6 @@ form > * {
 }
 
 .shorten-url a {
-  @apply text-lg text-white hover:underline;
+  @apply text-sm md:text-base text-white hover:underline text-center;
 }
 </style>
